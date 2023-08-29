@@ -20,7 +20,12 @@ const renderAllSongs = (songs) => {
     const songContainer = document.querySelector('#song-container');
     songContainer.innerHTML='';
     songs.forEach((song) => {
-        const songElement = renderAllSongs(song);
+        const songElement = document.createElement('div');
+        songElement.innerHTML =`
+            <h2> Title: ${song.title}</h2>
+            <p>Release Date: ${song.releaseDate}</P>
+            <p>${song.length.hours} hours and ${song.length.minutes} </P>
+        `
         songContainer.append(songElement);
     });
 }
